@@ -1,8 +1,7 @@
 from typing import Any
 
+import core
 from tokens import Token, TokenType
-
-import plox
 
 KEYWORDS = {
     "and": TokenType.AND,
@@ -59,6 +58,23 @@ class Scanner:
             if self.match("/"):
                 while self.peek() != "\n" and not self.is_at_end():
                     self.advance()
+
+            # Support nested C-style multiline comments
+            elif self.match("*"):
+                count = 1
+                while not self.is_at_end() and count > 0:
+                    char = self.advance()
+                    if char == "\n":
+                        self.line += 1                        
+                    elif char == "/" and self.peek() == "*":
+                        count += 1
+                        self.advance()
+                    elif char == "*" and self.peek() == "/":
+                        count -= 1
+                        self.advance()
+                
+                if count and self.is_at_end():
+                    core.error(self.line, "Unterminated multi-line nested comment")
             else:
                 self.add_token(TokenType.SLASH)
         elif char in set([" ", "\r", "\t"]): pass
@@ -70,7 +86,7 @@ class Scanner:
                 self.advance()
 
             if self.is_at_end():
-                plox.error(self.line, "Unterminated string.")
+                core.error(self.line, "Unterminated string.")
                 return
 
             self.advance()
@@ -78,7 +94,7 @@ class Scanner:
         elif self.is_digit(char): self.number()
         elif self.is_alpha(char): self.identifier()
         else:
-            plox.error(self.line, "Unexpected character")
+            core.error(self.line, "Unexpected character")
 
     def add_token(self, type: TokenType, literal: Any = None):
         text = self.source[self.start:self.current]
