@@ -1,7 +1,7 @@
 from typing import Any
 
-import core
-from tokens import Token, TokenType
+from lox import core
+from lox.tokens import Token, TokenType
 
 KEYWORDS = {
     "and": TokenType.AND,

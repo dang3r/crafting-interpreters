@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Plox interpreter",
+            "type": "python",
+            "request": "launch",
+            "program": "plox.py",
+            "args": ["lol.lox"],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Print Abstract Syntax Tree",
+            "type": "python",
+            "request": "launch",
+            "program": "ast_printer.py",
+            "args": [],
+            "console": "integratedTerminal"
+        }
+    ]
+}
