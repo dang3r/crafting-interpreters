@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Any
 
-from tokens import Token, TokenType
+from lox.tokens import Token, TokenType
 
 class Expr(ABC):
     @abstractmethod
@@ -46,7 +46,7 @@ class Variable(Expr):
    def __init__(self, name: Token):
       self.name = name
 
-def accept(self, visitor):
+   def accept(self, visitor):
       pass
 
 class Assignment(Expr):

@@ -1,4 +1,4 @@
-from errors import RuntimeError
+from lox.errors import RuntimeError
 
 class Environment:
     def __init__(self, enclosing = None):

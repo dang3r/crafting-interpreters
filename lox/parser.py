@@ -1,9 +1,9 @@
 from typing import List
 
-import core
-from tokens import Token, TokenType
-from lox_types import Binary, Unary, Literal, Grouping, Variable, Assignment
-from statements import Stmt, Print, Expression, Var, Block
+from lox import core
+from lox.tokens import Token, TokenType
+from lox.lox_types import Binary, Unary, Literal, Grouping, Variable, Assignment
+from lox.statements import Stmt, Print, Expression, Var, Block
 
 class ParserError(Exception):
     pass

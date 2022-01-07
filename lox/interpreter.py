@@ -1,14 +1,12 @@
 from typing import List
 
-import core
-from lox_types import Expr, Binary, Grouping, Literal, Unary, Variable, Assignment
-from tokens import TokenType, Token
-from typedispatch import visitor, _methods
-from statements import Print, Expression, Var, Stmt, Block
-from environment import Environment
-from errors import RuntimeError
-
-
+from lox import core
+from lox.lox_types import Expr, Binary, Grouping, Literal, Unary, Variable, Assignment
+from lox.tokens import TokenType, Token
+from lox.typedispatch import visitor, _methods
+from lox.statements import Print, Expression, Var, Stmt, Block
+from lox.environment import Environment
+from lox.errors import RuntimeError
 
 class Interpreter:
     def __init__(self):

@@ -1,6 +1,6 @@
-from lox_types import Expr, Binary, Grouping, Literal, Unary
-from tokens import TokenType, Token
-from typedispatch import visitor, _methods
+from lox.lox_types import Expr, Binary, Grouping, Literal, Unary
+from lox.tokens import TokenType, Token
+from lox.typedispatch import visitor
 
 class AstPrinter:
     def print(self, expr: Expr) -> str:

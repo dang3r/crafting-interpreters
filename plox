@@ -1,9 +1,8 @@
-import re
+#!/usr/bin/env python3
+
 import sys
 
-from core import run_file, run_prompt
-import scanner
-
+from lox.core import run_file, run_prompt
 
 def main():
     if len(sys.argv) > 2:

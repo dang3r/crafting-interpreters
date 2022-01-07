@@ -1,10 +1,10 @@
 import sys
 
-import scanner
-from tokens import Token, TokenType
-from parser import Parser
-from ast_printer import NewAstPrinter, AstRPNPrinter
-from interpreter import Interpreter
+from lox import scanner
+from lox.tokens import Token, TokenType
+from lox.parser import Parser
+from lox.ast_printer import NewAstPrinter, AstRPNPrinter
+from lox.interpreter import Interpreter
 
 had_error = False
 had_runtime_error = False
